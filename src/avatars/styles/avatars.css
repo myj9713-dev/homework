@@ -1,1 +1,93 @@
-/* 여기에 스타일을 구현해 주세요 */
+/* 스크린 리더 전용 텍스트 숨김 처리 (sr-only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 컨테이너 스타일 */
+.avatars-container {
+  width: 700px; /* 전체 아바타 리스트를 담고 최대 너비 지정하여 너무 안퍼지게 */
+  margin: 50px auto; /* 위아래 50px 여백, auto로 블록요소 화면 중앙 정렬 */
+  padding: 20px;
+  background-color: #ffffff; /* 웹페이지 전체 배경색이 횐색이 아닐 경우, 콘텐츠 영역을 분리, 강조하기 위해 추가 */
+  border: 1px solid #eeeeee; /* 컨테이너 영역의 경계를 명확히 표시 */
+}
+
+/* 리스트 초기화 및 float 적용 */
+.avatar-list {
+  list-style: none; /* ul 기본 스타일인 불릿기호(검은 점)를 제거 */
+  padding: 0; /* 내부여백 */
+  margin: 0; /* 외부여백 */
+  overflow: hidden; /* 자식요소의 float 값이 무시되고 있어서 list에는 내용이 없는것처럼 인식해서 높이가 0에 가깝게 찌그러짐. (overflow 속성에서 hidden은 시각적 숨김과 float의 해제,  auto는 넘친 내용을 스크롤바로 볼 수 있게 해줌. =Clearfix 역할) */
+  text-align: center; /* 내부 요소 중앙 정렬 시도 (float 사용 시 한계가 있음) */
+}
+
+/* 개별 아바타 아이템 스타일. 이게 ul안에 li요소역할*/
+.avatar-item {
+  /* float 속성을 사용하여 좌우로 배치, 
+    일반적으로 해당 속성을 적용하면 문서 흐름에서 제외*/
+  float: left;
+
+  /* 20px 간격 적용 (오른쪽과 아래쪽에 적용) */
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  /* 상태 표시 원을 위한 기준점 설정 */
+  position: relative;
+
+  /* 아바타 이미지 크기와 동일하게 레이아웃 크기 맞춤 */
+  width: 64px;
+  height: 64px;
+}
+
+/* 각 줄의 마지막 아바타 오른쪽 마진 제거해서 정렬 맞춤 */
+.avatar-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+/* 아바타 이미지 스타일 */
+.avatar-img {
+  width: 64px;
+  height: 64px;
+
+  /* 원형만들기. 이미지의 width,hright를 64px로 설정해둬서 원의 반지름(Radius)의 50%로 동그란 원이 나오는거임*/
+  border-radius: 50%;
+
+  /* 원본 이미지의 가로세로 비율 유지하면서 이미지 전체가 (width,hright 64px)를 완전 덮음. 원본 이미지에서 요소의 크기를 초과하는 부분을 빵틀로 찍듯이 잘림. 이 속성은 늘어나거나 찌그러지는 것을 방지 */
+  object-fit: cover;
+
+  /* 이미지 테두리 설정 (있으면 배경이랑 구분되서 선명해보임) */
+  border: 1px solid #f0f0f0;
+}
+
+/* 상태 표시 원 (Status Dot) 스타일 */
+.status-dot {
+  position: absolute; /* 부모요소의 relative를 기준으로 자유롭게 위치 지정 */
+  bottom: 0; /*relative를 기준으로 bottom(아래) 0 = 제일 아래쪽, 숫자가 커질수록 반대쪽으로 이동*/
+  right: 0; /*relative를 기준으로 right(오른쪽) 0 = 제일 오른쪽*/
+
+  /* 원 크기 및 모양 */
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  /* 흰색 테두리를 추가하여 시각적 분리 */
+  border: 2px solid #ffffff;
+}
+
+/* 오프라인 상태 (회색) */
+.status-offline {
+  background-color: #dbdbdb; /* 요구 조건: #DBDBDB */
+}
+
+/* 온라인 상태 (초록색) */
+.status-online {
+  background-color: #4cfe88; /* 요구 조건: #4CFE88 */
+}
