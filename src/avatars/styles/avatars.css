@@ -31,19 +31,11 @@
 
 /* 개별 아바타 아이템 스타일. 이게 ul안에 li요소역할*/
 .avatar-item {
-  /* float 속성을 사용하여 좌우로 배치, 
-    일반적으로 해당 속성을 적용하면 문서 흐름에서 제외*/
-  float: left;
-
-  /* 20px 간격 적용 (오른쪽과 아래쪽에 적용) */
-  margin-right: 20px;
+  float: left; /* float 속성을 사용하여 좌우로 배치, 일반적으로 해당 속성을 적용하면 문서 흐름에서 제외*/
+  margin-right: 20px; /* 20px 간격 적용 (오른쪽과 아래쪽에 적용) */
   margin-bottom: 20px;
-
-  /* 상태 표시 원을 위한 기준점 설정 */
-  position: relative;
-
-  /* 아바타 이미지 크기와 동일하게 레이아웃 크기 맞춤 */
-  width: 64px;
+  position: relative; /* 상태 표시 원을 위한 기준점 설정 */
+  width: 64px; /* 아바타 이미지 크기와 동일하게 레이아웃 크기 맞춤 */
   height: 64px;
 }
 
@@ -56,15 +48,9 @@
 .avatar-img {
   width: 64px;
   height: 64px;
-
-  /* 원형만들기. 이미지의 width,hright를 64px로 설정해둬서 원의 반지름(Radius)의 50%로 동그란 원이 나오는거임*/
-  border-radius: 50%;
-
-  /* 원본 이미지의 가로세로 비율 유지하면서 이미지 전체가 (width,hright 64px)를 완전 덮음. 원본 이미지에서 요소의 크기를 초과하는 부분을 빵틀로 찍듯이 잘림. 이 속성은 늘어나거나 찌그러지는 것을 방지 */
-  object-fit: cover;
-
-  /* 이미지 테두리 설정 (있으면 배경이랑 구분되서 선명해보임) */
-  border: 1px solid #f0f0f0;
+  border-radius: 50%; /* 원형만들기. 이미지의 width,hright를 64px로 설정해둬서 원의 반지름(Radius)의 50%로 동그란 원이 나오는거임*/
+  object-fit: cover; /* 원본 이미지의 가로세로 비율 유지하면서 이미지 전체가 (width,hright 64px)를 완전 덮음. 원본 이미지에서 요소의 크기를 초과하는 부분을 빵틀로 찍듯이 잘림. 이 속성은 늘어나거나 찌그러지는 것을 방지 */
+  border: 1px solid #f0f0f0; /* 이미지 테두리 설정 (있으면 배경이랑 구분되서 선명해보임) */
 }
 
 /* 상태 표시 원 (Status Dot) 스타일 */
